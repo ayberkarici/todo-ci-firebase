@@ -1,0 +1,455 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    font-family: 'Raleway', sans-serif;
+    -webkit-overflow-scrolling: touch;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+.nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 60px;
+    background-color: #b3b5bc80;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: rgba(220, 220, 220, 0.788);
+    z-index: 99;
+}
+
+
+.container {
+    width: 60%;
+    height: 100%;
+}
+
+.nav-content {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    cursor: pointer;
+    
+}
+
+.route {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 200px ;
+}
+
+.nav-content a {
+    text-decoration: none;
+    color: #160F1F;
+}
+
+.task-banner {
+    width: 100%;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.task-banner div {
+    font-size: 60px;
+}
+
+.main-container {
+    width: 100%;  
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 300px;
+}
+
+.route-dropdown {
+    width: 150px;
+    height: fit-content;
+    display: none;
+    cursor: pointer;
+    position: relative;
+    flex-direction: row-reverse;
+    -ms-flex-direction: row-reverse;
+    transition: all .3s ease-in-out;
+}
+
+.dropdownList {
+    display: none; /*  display: flex;  */
+    position: absolute;
+    top: 22px; /* 10 px aşağı inecek */
+    left: -10px;
+    width: fit-content;
+    height: fit-content;
+    border-radius: 10px;
+    flex-direction: column;
+    -ms-flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #160F1F;
+    color: #B3B5BC;
+    opacity: 0;
+    padding: 5px;
+}
+
+.dropdownList a {
+    color: #B3B5BC;
+}
+
+.dropdownList div {
+    margin: 5px;
+    width: 150px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #160F1F;
+    border-radius: 5px;
+}
+
+.dropdownList div:hover {
+    background-color: #2a1d3b;
+}
+
+.logout-color {
+    color: rgb(139, 30, 30);
+}
+
+.dropBtn {
+    color: #160F1F;
+    border: 1px solid #160f1f85;
+    padding: 5px 10px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.open {
+    display: flex;
+    opacity: 1;
+    transform: translateY(10px);
+    -ms-transform: translateY(10px);
+    -o-transform: translateY(10px);
+}
+
+/********************************** Task Card ********************************/
+/********************************** Task Card ********************************/
+/********************************** Task Card ********************************/
+
+.task-container {
+    position: relative;
+    overflow: hidden;
+    overflow: -moz-hidden-unscrollable;
+    width: 100%;
+    min-height: 200px;
+    background-color: #252D6B;
+    color: #F2F2FB;
+    padding: 40px;
+    border-radius: 10px;
+    -webkit-box-shadow: 0px 7px 13px 0px rgba(50, 50, 50, 0.49);
+    -moz-box-shadow: 0px 7px 13px 0px rgba(50, 50, 50, 0.49);
+    box-shadow: 0px 7px 13px 0px rgba(50, 50, 50, 0.49);
+    display: flex;
+    justify-content: left;
+    align-items: flex-start;
+    flex-direction: column;
+    -ms-flex-direction: column;
+    margin-bottom: 20px;
+    transition: all .3s ease-in-out;
+}
+
+.task-type {
+    font-size: 15px;
+    text-transform: lowercase;
+}
+
+.task-head {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.task-body {
+    font-weight: bolder;
+    font-size: 16px;
+    width: 100%;
+    height: fit-content;
+
+}
+
+.task-body-line {
+    text-decoration: line-through;
+}
+
+.task-deleteBtn {
+    height: 30px;
+    width: 70px;
+    color: #F1F1FF;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    border: none;
+    border-radius: 5px;
+    background-color: #DC3545;
+    outline: none;
+    cursor: pointer;   
+    transition: background-color .3s ease-in-out, box-shadow .3s ease-in-out;
+    -webkit-box-shadow: 0px 4px 6px 0px rgba(50, 50, 50, 0.49);
+    -moz-box-shadow:    0px 4px 6px 0px rgba(50, 50, 50, 0.49);
+    box-shadow:         0px 4px 6px 0px rgba(50, 50, 50, 0.49);
+
+}
+
+.task-deleteBtn:hover {
+    background-color: #dc3546e5;
+    -webkit-box-shadow: 0px 1px 6px 0px rgba(50, 50, 50, 0.49);
+    -moz-box-shadow:    0px 1px 6px 0px rgba(50, 50, 50, 0.49);
+    box-shadow:         0px 1px 6px 0px rgba(50, 50, 50, 0.49);
+}
+
+.task-donediv {
+    width: 100%;
+    height: 50px;
+}
+
+.task-doneBtn {
+    position: absolute;
+    bottom: 40px;
+    left: 40px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    width: 150px;
+    height: 30px;
+    background-color: rgb(26, 34, 97);
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    transition: transform .1s ease-in-out, box-shadow .1s ease-in-out;
+    -webkit-box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.315);
+    -moz-box-shadow:    0px 4px 6px 0px rgba(0, 0, 0, 0.315);
+    box-shadow:         0px 4px 6px 0px rgba(0, 0, 0, 0.315);
+    cursor: pointer;
+    
+}
+
+.task-doneBtn:hover {
+    -webkit-box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.418);
+    -moz-box-shadow:    0px 3px 6px 0px rgba(0, 0, 0, 0.418);
+    box-shadow:         0px 3px 6px 0px rgba(0, 0, 0, 0.418);
+    transform: translateY(1px);
+    -ms-transform: translateY(1px);
+    -o-transform: translateY(1px);
+}
+
+.task-doneBtn:active {
+    -webkit-box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.541);
+    -moz-box-shadow:    0px 2px 6px 0px rgba(0, 0, 0, 0.541);
+    box-shadow:         0px 2px 6px 0px rgba(0, 0, 0, 0.541);
+    transform: translateY(4px);
+    -ms-transform: translateY(4px);
+    -o-transform: translateY(4px);
+}
+.task-doneBackground {
+    
+
+    background: linear-gradient(91deg, #252d6b, #58004d, #25526b);
+    background-size: 600% 600%;
+
+    -webkit-animation: doneTaskBackground 15s ease infinite;
+    -moz-animation: doneTaskBackground 15s ease infinite;
+    animation: doneTaskBackground 15s ease infinite;
+
+    opacity: .8;
+}
+
+.fa-thumbs-up {
+    color: #F1F1FF;
+}
+
+.blur {
+    filter: blur(1px);
+    -webkit-filter: blur(1px);
+    -ms-filter: blur(1px);
+}
+
+.overflow-hidden {
+    overflow: hidden;
+    overflow: -moz-hidden-unscrollable;
+}
+
+
+/*************************** Footer ******************************/
+/*************************** Footer ******************************/
+/*************************** Footer ******************************/
+
+
+.footer {
+    background-color: #131A22;
+    width: 100%;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    -ms-flex-direction: column;
+    color: #BCBCC8;
+}
+
+.social {
+    width: 100%;
+    height: fit-content;
+    padding: 20px;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top: 1px solid #252D6B;
+}
+
+.social a {
+    color: #ccccf8;
+}
+
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 400px) {
+
+}
+
+@media only screen and (max-width: 600px) {
+
+    .container {
+        width: 80%;
+    }
+
+    .route-dropdown {
+        display: flex;
+        position: relative;
+    }
+
+    .route {
+        display: none;
+    }
+    .task-doneBtn {
+        width: calc(100% - 2*20px);  
+        bottom: 20px;
+        left: 20px;      
+    }
+    .task-container {
+        padding: 20px;
+        margin-bottom: 10px;
+    }
+
+
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+
+}
+
+/* Large devices (laptops/desktops, 992px and down) */
+@media only screen and (max-width: 992px) {
+
+}
+
+/* Large devices (laptops/desktops, 992px and down) */
+@media only screen and (max-width: 992px) {
+
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+
+}
+
+@media only screen and (max-width: 1359px) {
+
+}
+
+
+@-webkit-keyframes doneTaskBackground {
+    0%{background-position:0% 52%}
+    50%{background-position:100% 49%}
+    100%{background-position:0% 52%}
+}
+@-moz-keyframes doneTaskBackground {
+    0%{background-position:0% 52%}
+    50%{background-position:100% 49%}
+    100%{background-position:0% 52%}
+}
+@keyframes doneTaskBackground {
+    0%{background-position:0% 52%}
+    50%{background-position:100% 49%}
+    100%{background-position:0% 52%}
+}
+
+
+::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
+}
+::-webkit-scrollbar-button {
+  width: 0px;
+  height: 0px;
+}
+::-webkit-scrollbar-thumb {
+  background: #e1e1e1;
+  border: 0px none #ffffff;
+  border-radius: 0px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #9b9b9b;
+}
+::-webkit-scrollbar-thumb:active {
+  background: #858585;
+}
+::-webkit-scrollbar-track {
+  background: #ffffff;
+  border: 0px none #ffffff;
+  border-radius: 0px;
+}
+::-webkit-scrollbar-track:hover {
+  background: #cccccc;
+}
+::-webkit-scrollbar-track:active {
+  background: #bdbdbd;
+}
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
