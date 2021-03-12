@@ -63,5 +63,11 @@ $route['register/(.*)'] = 'acount/$1';
 $route['tasks'] = 'acount/taskPage';
 $route['tasks/(.*)'] = 'acount/$1';
 
+$route['process'] = 'acount/process';
+$route['process/(.*)'] = 'acount/$1';
+
+$route['home'] = 'acount/index';
+$route['home/(.*)'] = 'acount/$1';
+
 
 

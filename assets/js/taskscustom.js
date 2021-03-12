@@ -32,7 +32,13 @@ doneBtn.addEventListener('click', ()=> {
 });
 
 
-
+$(document).ready(function () {
+    $('.radio').on('change', function (r) {
+        var radioValue = r.target.value;
+        // burdan değeri al
+        //foo(radioValue)
+    })
+})
 
   
 

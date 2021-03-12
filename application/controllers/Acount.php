@@ -39,6 +39,11 @@ class Acount extends CI_Controller {
 
     }
 
+    public function process()
+    {
+        echo 'soon';
+    }
+
 
 
 	
