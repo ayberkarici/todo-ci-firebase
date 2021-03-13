@@ -35,75 +35,80 @@
 </nav>
 
 <div class="toggleup-menu">
-<section class="inclusive-addTask">
-    <div class="container-addtask">
-        <div class="addTask">
-            <div class="subaddtask">
-                <div class="taskinput">
-                    Necessity
-                    <!--
-                    <div>
-                        <input type="text" placeholder="necessary, cool, maybe, immediately, meh etc.">
-                    </div>
-    -->
-                    <div class="radio">
-                        <div class="checkmarkDiv">
-                            <label class="containera">
-                                <input type="radio" name="radio" checked="checked" value="0">
-                                <span class="checkmark red"></span>
-                            </label>
-                            <div class="checkmarkName red" >
-                                <i class="far fa-grimace "></i>
-                            </div>
-                        </div>    
-                        <div class="checkmarkDiv">
-                            <label class="containera">
-                                <input type="radio" name="radio" value="1">
-                                <span class="checkmark green"></span>
-                            </label>
-                            <div class="checkmarkName green">
-                                <i class="far fa-smile "></i>
-                            </div>
-                        </div>    
-                        <div class="checkmarkDiv">
-                            <label class="containera">
-                                <input type="radio" name="radio" value="2">
-                                <span class="checkmark blue"></span>
-                            </label>
-                            <div class="checkmarkName blue">
-                                <i class="far fa-grin-tongue "></i>
-                            </div>
-                        </div>    
-                        <div class="checkmarkDiv">
-                            <label class="containera">
-                                <input type="radio" name="radio" value="3">
-                                <span class="checkmark gray"></span>
-                            </label>
-                            <div class="checkmarkName gray">
-                                <i class="far fa-meh-blank "></i>
-                            </div>
-                        </div>    
-    
-                        
-                    </div>
+    <section class="inclusive-addTask">
+        <div class="container-addtask">
+            <div class="addTask" id="addTask">
+                <div class="closeAddTaskBtn">
+                    <button type="button" id="closeAddTaskBtn"><i class="fas fa-times"></i></button>
                 </div>
-                <div class="tasktext margin-bottom-100">
-                    Task Name
-                    <div class="radio">
-                        <input type="text" placeholder="Tell me, i'll write down">
+                <div class="subaddtask">
+                    <span>New Task</span>
+                    <div class="taskinput">
+                        Necessity
+                        <!--
+                        <div>
+                            <input type="text" placeholder="necessary, cool, maybe, immediately, meh etc.">
+                        </div>
+        -->
+                        <div class="radio">
+                            <div class="checkmarkDiv">
+                                <label class="containera">
+                                    <input type="radio" name="radio" checked="checked" value="0">
+                                    <span class="checkmark red"></span>
+                                </label>
+                                <div class="checkmarkName red" >
+                                    <i class="far fa-grimace "></i>
+                                </div>
+                            </div>    
+                            <div class="checkmarkDiv">
+                                <label class="containera">
+                                    <input type="radio" name="radio" value="1">
+                                    <span class="checkmark green"></span>
+                                </label>
+                                <div class="checkmarkName green">
+                                    <i class="far fa-smile "></i>
+                                </div>
+                            </div>    
+                            <div class="checkmarkDiv">
+                                <label class="containera">
+                                    <input type="radio" name="radio" value="2">
+                                    <span class="checkmark blue"></span>
+                                </label>
+                                <div class="checkmarkName blue">
+                                    <i class="far fa-grin-tongue "></i>
+                                </div>
+                            </div>    
+                            <div class="checkmarkDiv">
+                                <label class="containera">
+                                    <input type="radio" name="radio" value="3">
+                                    <span class="checkmark gray"></span>
+                                </label>
+                                <div class="checkmarkName gray">
+                                    <i class="far fa-meh-blank "></i>
+                                </div>
+                            </div>    
+        
+                            
+                        </div>
                     </div>
-                </div>
-                <!-- addTaskButton ekle, responsive yap -->
-                <div class="addTaskBtn">
-                    <button type="button" id="">Add Task</button>
+                    <div class="tasktext margin-bottom-100">
+                        Task Name
+                        <div class="radio">
+                            <input type="text" placeholder="Tell me, i'll write down">
+                        </div>
+                    </div>
+                    <!-- addTaskButton ekle, responsive yap -->
+                    <div class="addTaskBtn">
+                        <button type="button" id="sendToDatabase">Add Task</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
     <nav class="task-banner">
         <div>tasks</div>
+        <div><button type="button" class="openAddTaskBtn"><span><i class="fas fa-plus"></i></span></button></div>
     </nav>
     
     <article class="main-container">

@@ -76,10 +76,35 @@ a {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+    -ms-flex-direction: column;
+    flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
 }
 
 .task-banner div {
     font-size: 60px;
+}
+
+.task-banner span {
+    font-size:50px;
+}
+
+.openAddTaskBtn {
+    background-color: transparent;
+    border: 1px solid;
+    border-color: #252D6B;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 0;
+    width: 70px;
+    height: 70px;
+    transition:background-color .3s ease-in-out ;
+    cursor: pointer;
+}
+
+.openAddTaskBtn:hover {
+    background-color: rgba(68, 136, 175, 0.2);
 }
 
 .main-container {
@@ -95,7 +120,6 @@ a {
     width: 150px;
     height: fit-content;
     display: none;
-    cursor: pointer;
     position: relative;
     flex-direction: row-reverse;
     -ms-flex-direction: row-reverse;
@@ -151,14 +175,11 @@ a {
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
 
 .open {
     display: flex;
-    opacity: 1;
-    transform: translateY(10px);
-    -ms-transform: translateY(10px);
-    -o-transform: translateY(10px);
 }
 
 /********************************** Task Card ********************************/
@@ -185,6 +206,9 @@ a {
     -ms-flex-direction: column;
     margin-bottom: 20px;
     transition: all .3s ease-in-out;
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
 }
 
 .task-type {
@@ -312,14 +336,14 @@ a {
     width: 100%;
     height: 100%;
     position: absolute;
-    top: 0;    
+
     right: 0;
     left: 0;
     bottom: 0;
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
-
+    opacity: 0;
 }
 
 .container-addtask {
@@ -334,11 +358,11 @@ a {
 .addTask {
     position: absolute;
     width: 100%;
-    height: 70%;
+    min-height: 70%;
     display: flex;
     justify-content: left;
     align-items: center;
-    background-color: #131a22de;
+    background-color: #000000;
     z-index: 3;
     flex-direction: column;
     -ms-flex-direction: column;
@@ -347,7 +371,7 @@ a {
 }
 
 .taskinput {
-    padding: 30px 0;
+    padding: 20px 0;
 }
 
 .tasktext {
@@ -368,6 +392,10 @@ a {
     -webkit-transition: border-bottom .3s ease-in-out ;
     -o-transition: border-bottom .3s ease-in-out ;
     color: white;
+}
+
+.tasktext input::placeholder {
+    opacity: 1;
 }
 
 .tasktext input:hover {
@@ -407,7 +435,7 @@ a {
     display: block;
     position: relative;
     padding-left: 35px;
-    margin-bottom: 12px;
+    margin-bottom: 25px;
     margin-right: 15px;
     cursor: pointer;
     font-size: 22px;
@@ -505,6 +533,52 @@ a {
     display: flex;
     margin-top: 20px;
 }
+
+.addTaskBtn {
+    width: 100%;
+}
+
+.addTaskBtn button{
+    width: 50%;
+    height: 40px;
+    border: none;
+    background-color: #131A22;
+    color: #e8e8f8;
+    outline: none;
+    transition: background-color .3s ease-in-out, box-shadow .3s ease-in-out;
+    -webkit-transition: background-color .3s ease-in-out, box-shadow .3s ease-in-out;
+    -moz-transition: background-color .3s ease-in-out, box-shadow .3s ease-in-out;
+    -o-transition: background-color .3s ease-in-out, border-bottom .3s ease-in-out;
+    border-bottom: #2b3036 3px solid;
+    cursor: pointer;
+}
+
+.addTaskBtn button:hover{
+    border-bottom: #2b3036 2px solid;
+    background-color: #1a2430;
+}
+
+.addTaskBtn button:active {
+    border-bottom: none;
+    border-top: #2b3036 2px solid;
+
+}
+
+.closeAddTaskBtn {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    outline: none;
+}
+
+.closeAddTaskBtn button {
+    border: none;
+    background-color: transparent;
+    font-size: 20px;
+    color: white;
+    cursor: pointer;
+}
+
 /*************************** Footer ******************************/
 /*************************** Footer ******************************/
 /*************************** Footer ******************************/
@@ -581,6 +655,21 @@ a {
         width: 80%;
     }
 
+    .subaddtask {
+        width: 100%;
+    }
+
+    .containera {
+        margin-right: 10px;
+    }
+
+    .tasktext input {
+        width: 100%;
+    }
+
+    .addTaskBtn button{
+        width: 100%;
+    }
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
