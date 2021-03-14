@@ -16,10 +16,82 @@
 
 body {
     overflow-x: hidden;
+    background-color: white;
 }
 
 a {
     cursor: pointer;
+}
+
+/*----------------------- Preloader -----------------------*/
+
+
+.preloader-wrapper {
+    height: 100%;
+    width: 100%;
+    background: #FFF;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.preloader-wrapper .preloader {
+    position: absolute;
+    width: fit-content;
+}
+
+.preloader-wrapper-task {
+    width: 100%;
+    height: 100%;
+    background: #FFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.preloader-wrapper-task .preloader {
+    position: absolute;
+    width: fit-content;
+}
+
+.preloader-image {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+}
+
+.info {
+    width: 100%;
+    height: 30vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    bottom: 0;
+    z-index: 5;
+    display: none;
+}
+
+.infoDiv {
+    width: 300px;
+    height: 50px;
+    border-radius: 15px;
+    background-color: rgb(64, 191, 240);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bolder;
+    letter-spacing: 1px;
+    -webkit-box-shadow: 0px 5px 15px -2px rgba(50, 50, 50, 0.55);
+    -moz-box-shadow:    0px 5px 15px -2px rgba(50, 50, 50, 0.55);
+    box-shadow:         0px 5px 15px -2px rgba(50, 50, 50, 0.55);
 }
 
 .nav {
@@ -182,6 +254,10 @@ a {
     display: flex;
 }
 
+.events-inactive {
+    pointer-events: none;
+}
+
 /********************************** Task Card ********************************/
 /********************************** Task Card ********************************/
 /********************************** Task Card ********************************/
@@ -209,6 +285,16 @@ a {
     -webkit-transition: all .3s ease-in-out;
     -moz-transition: all .3s ease-in-out;
     -o-transition: all .3s ease-in-out;
+}
+
+.tasks {
+    width: 100%;
+    min-height: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    -ms-flex-direction: column;
 }
 
 .task-type {
@@ -265,7 +351,7 @@ a {
 
 .task-donediv {
     width: 100%;
-    height: 50px;
+    height: 30px;
 }
 
 .task-doneBtn {
@@ -669,6 +755,12 @@ a {
 
     .addTaskBtn button{
         width: 100%;
+    }
+
+        
+    .infoDiv {
+        width: 90%;
+        height: 50px;
     }
 }
 

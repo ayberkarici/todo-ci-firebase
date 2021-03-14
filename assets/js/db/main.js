@@ -11,17 +11,190 @@ $(document).ready(function (){
     };
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
-
+    let necessity = ['immidiately', 'cool', 'maybe', 'meh'];
     let current_user = "";      
 
     firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
 
-            current_user = user.uid; 
-            console.log(current_user);
+            current_user = user.uid;
+            
+            $('#sendToFirebase').click(function (){
+                let moodValue = $('input[name="radio"]:checked').val();            
+                
+                if (moodValue != undefined && $('#description').val() != "") {
+    
+                    let desc = $('#description').val();
+                    
+                    catFadeOut()
+    
+                    firebase.database().ref().child("users").child(current_user).child("todos").push(
+                        {
+                            necessity   : moodValue,
+                            description : desc,
+                            completed   : false
+                        }
+                    ).then( function (){
+    
+                        $('#description').val(''); 
+    
+                        $('.inclusive-addTask').animate({
+                            top: '-15px',
+                            opacity:0,
+                        }, 500, function () {
+                            $('.inclusive-addTask').css('display', 'none');
+                            $('body').css('overflow-y', 'scroll');
+                        });
+
+                        catFadeOut();
+
+                        /**
+                         * info animasyonu card
+                         */
+
+
+                        
+
+
+                    });
+                
+                } else if (moodValue == undefined && $('#description').val() != "") {
+                    /**
+                     * Please choose a mood, it's easy 
+                     */
+                    alert("Please choose a mood, it's easy")
+                } else if (moodValue != undefined && $('#description').val() == "") {
+                    /**
+                     * Please write something, it's okay 
+                     */
+                    alert("Please write something, it's okay")
+                } else {
+                    /**
+                     * Write me a task!
+                     */
+                    alert("Write me a task!")
+                }
+
+            });
+            
+            
+            
+            
+            // ToDo eklendiğinde, kayıtların yani statelerin değiştiğin farkına varıyoruz
+
+            let todoref =firebase.database().ref().child("users/" + current_user).child("todos");
+
+            todoref.on("value", function (snapshot) {
+                        
+                const $parent = $('.tasks');
+
+                // Task container
+                $parent.html('');
+                
+                snapshot.forEach(function (item) {
+
+                    catFadeOut();
+                    // Background color change
+                    let necessity_color = ['red', 'green', 'blue', 'gray'];
+
+
+                    let done_class_bg = item.val().completed == true ? " task-doneBackground "  : "";
+                    let valueBtn = item.val().completed == true ? "done"  : "process";
+
+                    let card = `
+                    <article class="task-container ${done_class_bg}" >
+                        <div class="task-head">
+                            <div class="task-type ${necessity_color[item.val().necessity]}">${necessity[item.val().necessity]}</div>
+                            <div>
+                                <button type="button" class="task-deleteBtn" data-key="${item.key}">delete</button>
+                            </div>
+                        </div>
+                        <div class="task-body">${item.val().description}</div>
+                        <div class="task-donediv">
+                            <button value="${valueBtn}" type="button" class="task-doneBtn" data-key="${item.key}"><i class="fas fa-thumbs-up"></i></button>
+                        </div>
+                    </article>
+                    `;
+                    
+                    $parent.append(card);
+
+                });
+
+                
+                
+                
+                catFadeOut();
+                
+            });     
+            
+            $("body").on("click", ".task-deleteBtn", function () {
+
+                let currentdate = getDate();
+
+            
+                let $key = $(this).data("key");
+                let deletedTaskRef = firebase.database().ref('users/' + current_user + '/todos');
+                
+                deletedTaskRef.on('value', (snapshot) => {
+                    const dataDesc = snapshot.child($key).val().description;
+                    const dataMood = snapshot.child($key).val().necessity;
+                    const dataSuccess = snapshot.child($key).val().completed;
+
+                    firebase.database().ref('users/' + current_user + '/deleted').child($key).set({
+                        description: dataDesc,
+                        necessity: necessity[dataMood],
+                        mode : 'deleted',
+                        success : dataSuccess,
+                        delete_time : currentdate
+                    }).then(function () {
+
+                        firebase.database().ref("users/" + current_user).child("todos").child($key).remove();
+
+                    });
+
+                });
+
+            })
+            
+            
+            $("body").on("click", ".task-doneBtn" , function () {
+                
+                let $key = $(this).data("key");
+
+                if ($(this).attr("value") == 'process') {
+                    
+                    firebase.database().ref("users/" + current_user).child("todos").child($key).child("completed").set(true);
+                    
+
+                } else if ($(this).attr("value") == 'done') {
+                    
+                    firebase.database().ref("users/" + current_user).child("todos").child($key).child("completed").set(false);
+                    
+                }
+
+            })
+            
+
+            let todoref_deleted =firebase.database().ref().child("users/" + current_user).child("deleted");
+
+
+            
+            function catFadeOut() {
+                $('.preloader-wrapper-task').animate({
+                    top: '15px',
+                    opacity:0,
+                }, 500, function () {
+                    $('.preloader-wrapper-task').css('display', 'none');
+                });
+
+            }
+                        
+            /**
+             *  Logout process
+             */
 
             $('#logout').click(function () {
-                
+            
                 firebase.auth().signOut()
                     .then(function () {
                         window.location.href = 'home';
@@ -36,98 +209,19 @@ $(document).ready(function (){
                         window.location.href = 'home';
                     })
 
-            });
-
-            
-            /*
-            $('#sendToFirebase').click(function (){
-                let desc = $('#description').val();
-                
-                firebase.database().ref().child("users").child(current_user).child("todos").push(
-                    {
-                        description : desc,
-                        completed   : false
-                    }
-                );
-
-                $('#description').val(''); 
-                                
-            });
-            */
-            
-            // ToDo eklemek için kayıtların yani statelerin değiştiğin farkına varıyoruz
-
-            let todoref =firebase.database().ref().child("users/" + current_user).child("todos");
-
-            todoref.on("value", function (snapshot) {
-                
-                const $parent = $('.tasks');
-
-                // Task container
-                //$parent.html('');
-
-                let $k = 1;
-
-                /* 
-                snapshot.forEach(function (item) {
-
-                    // New task adding will come here
-
-                    let completed = item.val().completed == true ? "checked" : "";
-                    let done_class = item.val().completed == true ? " done " : "";
-                    let done_class_bg = item.val().completed == true ? " done-bg" + $k  : "";
-
-                    let description_elem = "<td class='"+ done_class + done_class_bg +" animate'>" + item.val().description + "</td>";
-                    let completed_elem = '<td class="text-center" ><input data-key = '+ item.key +' type="checkbox" class="switchery-plugin"' + completed + '/></td>';
-                    let removeBtn_elem = '<td class="text-center" ><button data-key = '+ item.key +' class="btn btn-danger btn-block removeBtn btn-sm w100">Sil</button> </td>';
-                    let tr_elem = "<tr>" + description_elem + completed_elem + removeBtn_elem + "</tr>"
-
-                    $parent.append(tr_elem);
-
-                    if($k == 5) {
-                        $k = 1;
-                    } else {
-                        $k++
-                    }
-                });
-                */
-                
-                /*
-                $("body").on("click", ".removeBtn", function () {
-
-                    // remove task will come here
-
-                    let $key = $(this).data("key");
-
-                    firebase.database().ref("users/" + current_user).child("todos").child($key).remove();
-                    
-                })
-                */
-                
-                /*
-                $("body").on("change", ".switchery-plugin", function () {
-
-                    // Done animation will come here
-                    
-
-                    let $completed = $(this).prop("checked");
-
-                    let $key = $(this).data("key");
-
-                    firebase.database().ref("users/" + current_user).child("todos").child($key).child("completed").set($completed);
-                    
-                    
-                })
-                */
-                
-                
-                
-                
-                
-                
-                
             })
 
+            function getDate() {
+                let currentdate = new Date(); 
+                let datetime = currentdate.getDate() + "/"
+                + (currentdate.getMonth()+1)  + "/" 
+                + currentdate.getFullYear() + " @ "  
+                + currentdate.getHours() + ":"  
+                + currentdate.getMinutes() + ":" 
+                + currentdate.getSeconds()
+
+                return datetime;
+            }
 
         }
 

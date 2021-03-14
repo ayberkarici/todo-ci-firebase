@@ -29,27 +29,24 @@ dropdownBtn.addEventListener('click', function () {
     $('.dropdownList').animate({
         top: '15px',
         opacity:1,
-    }, 500 , function () {dropdown = true} );
+    }, 500 , function () {
+        dropdown = true
+        
+    } );
     
 });
 
 
-const doneBtn = document.querySelector('.task-doneBtn');
-const taskContainer = document.querySelector('.task-container');
-const task = document.querySelector('.task-body');
-
-doneBtn.addEventListener('click', ()=> {
-    taskContainer.classList.toggle('task-doneBackground');
-    task.classList.toggle('task-body-line');
-});
-
-
 $(document).ready(function () {
-    $('.radio').on('change', function (r) {
-        var radioValue = r.target.value;
-        // burdan değeri al
-        //foo(radioValue)
-    })
+
+    if($('.task-doneBtn')) {
+        $('.task-doneBtn').click(function () {
+            
+            $('.task-container').toggleClass('task-doneBackground');
+            $('.task-body').toggleClass('task-body-line');
+
+        })
+    }
 
     $('#closeAddTaskBtn').click(function () {
         $('.inclusive-addTask').animate({
@@ -57,25 +54,38 @@ $(document).ready(function () {
             opacity:0,
         }, 500, function () {
             $('.inclusive-addTask').css('display', 'none');
+            $('body').css('overflow-y', 'scroll');
         });
-        $('body').css('overflow-y', 'scroll');
     });
 
     $('.openAddTaskBtn').click(function () {
         
-        console.log($(window).scrollTop() + "px");
         $('.addTask').offset({top: $(window).scrollTop() + 40});
 
         $('.inclusive-addTask').css('display', 'flex');
         $('.inclusive-addTask').animate({
             top: '15px',
             opacity:1,
-        });
-        $('body').css('overflow', 'hidden');
+        }, 500, function () {$('body').css('overflow', 'hidden')});
+        
     });
 
 })
 
+
+$(document).ready(function() {
+    $('body').css('overflow', 'hidden');
+});
+
+$(window).ready(function() {
+    $('.preloader-wrapper').animate({
+        top: '15px',
+        opacity:0,
+    }, 500, function () {
+        $('.preloader-wrapper').css('display', 'none');
+        $('body').css('overflow-y', 'scroll');
+    });
+});
 
 
   

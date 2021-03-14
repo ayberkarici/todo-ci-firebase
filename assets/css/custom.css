@@ -456,3 +456,38 @@ form {
         background-size: contain;
     }
 }
+
+
+::-webkit-scrollbar {
+    width: 9px;
+    height: 9px;
+}
+::-webkit-scrollbar-button {
+    width: 0px;
+    height: 0px;
+}
+::-webkit-scrollbar-thumb {
+    background: #e1e1e1;
+    border: 0px none #ffffff;
+    border-radius: 0px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #9b9b9b;
+}
+::-webkit-scrollbar-thumb:active {
+    background: #858585;
+}
+::-webkit-scrollbar-track {
+    background: #ffffff;
+    border: 0px none #ffffff;
+    border-radius: 0px;
+}
+::-webkit-scrollbar-track:hover {
+    background: #cccccc;
+}
+::-webkit-scrollbar-track:active {
+    background: #bdbdbd;
+}
+::-webkit-scrollbar-corner {
+    background: transparent;
+}

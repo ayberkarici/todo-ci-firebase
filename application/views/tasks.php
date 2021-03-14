@@ -9,6 +9,23 @@
     <title>Tasks</title>
 </head>
 <body>
+
+<div class="preloader-wrapper">
+    <div class="preloader">
+        <img src="assets/images/preloader.gif" alt="cat">
+    </div>
+</div>
+
+<!------------------- info div --------------------->
+<!------------------- info div --------------------->
+
+<div class="info">
+    <div class="infoDiv">
+        Bravo! New task added.
+    </div>
+</div>
+
+
 <nav class="nav">
     <div class="container">
         <div class="nav-content">
@@ -53,7 +70,7 @@
                         <div class="radio">
                             <div class="checkmarkDiv">
                                 <label class="containera">
-                                    <input type="radio" name="radio" checked="checked" value="0">
+                                    <input type="radio" name="radio" value="0">
                                     <span class="checkmark red"></span>
                                 </label>
                                 <div class="checkmarkName red" >
@@ -94,12 +111,12 @@
                     <div class="tasktext margin-bottom-100">
                         Task Name
                         <div class="radio">
-                            <input type="text" placeholder="Tell me, i'll write down">
+                            <input type="text" id="description" placeholder="Tell me, i'll write it down">
                         </div>
                     </div>
                     <!-- addTaskButton ekle, responsive yap -->
                     <div class="addTaskBtn">
-                        <button type="button" id="sendToDatabase">Add Task</button>
+                        <button type="button" id="sendToFirebase">Add Task</button>
                     </div>
                 </div>
             </div>
@@ -115,6 +132,13 @@
         <div class="container">
             <div class="tasks">
 
+                <div class="preloader-wrapper-task">
+                    <div class="preloader">
+                        <div class="preloader-image"><img src="assets/images/preloader.gif" alt="cat"></div>
+                        <div>Add some task</div>
+                    </div>
+                </div>
+<!--
                 <article class="task-container">
                     <div class="task-head">
                         <div class="task-type">necessary, cool, maybe, immidiately</div>
@@ -127,7 +151,7 @@
                         <button type="button" class="task-doneBtn"><i class="fas fa-thumbs-up"></i></button>
                     </div>
                 </article>
-
+-->
             </div>
         </div>
     </article>
