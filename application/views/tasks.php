@@ -21,7 +21,7 @@
 
 <div class="info">
     <div class="infoDiv">
-        Bravo! New task added.
+        
     </div>
 </div>
 

@@ -53,6 +53,7 @@ $(document).ready(function (){
                          */
 
 
+                        showinfo('Bravo! New task added.');
                         
 
 
@@ -85,6 +86,8 @@ $(document).ready(function (){
             let todoref =firebase.database().ref().child("users/" + current_user).child("todos");
 
             todoref.on("value", function (snapshot) {
+
+                catFadeOut();
                         
                 const $parent = $('.tasks');
 
@@ -123,7 +126,7 @@ $(document).ready(function (){
                 
                 
                 
-                catFadeOut();
+                
                 
             });     
             
@@ -150,6 +153,8 @@ $(document).ready(function (){
 
                         firebase.database().ref("users/" + current_user).child("todos").child($key).remove();
 
+                        showinfo("Deleted! It's gone dude.");
+
                     });
 
                 });
@@ -165,21 +170,20 @@ $(document).ready(function (){
                     
                     firebase.database().ref("users/" + current_user).child("todos").child($key).child("completed").set(true);
                     
+                    showinfo('Well done! Keep going!');
 
                 } else if ($(this).attr("value") == 'done') {
                     
                     firebase.database().ref("users/" + current_user).child("todos").child($key).child("completed").set(false);
                     
+                    showinfo("Nevermind, you'll do it again!");
+
                 }
 
             })
             
-
-            let todoref_deleted =firebase.database().ref().child("users/" + current_user).child("deleted");
-
-
-            
             function catFadeOut() {
+
                 $('.preloader-wrapper-task').animate({
                     top: '15px',
                     opacity:0,
@@ -221,6 +225,31 @@ $(document).ready(function (){
                 + currentdate.getSeconds()
 
                 return datetime;
+            }
+
+            function showinfo(text) {
+                $('.info').css('display', 'flex');
+                
+                $('.infoDiv').html(text)
+
+                $('.infoDiv').animate({
+                    top: '-15px',
+                    opacity:1,
+                }, 500, function () {
+                    
+                    setTimeout(() => {
+                        
+                        $('.infoDiv').animate({
+                            top: '15px',
+                            opacity:0,
+                        }, 500, function () {
+                            $('.info').css('display', 'none');
+                        });
+                        
+                    }, 2000);
+
+                });
+
             }
 
         }
