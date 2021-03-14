@@ -7,17 +7,17 @@ class acount extends CI_Controller {
 		$this->load->view('landing');
 	}
 
-    public function registerPage()
+    public function registerpage()
     {
         $this->load->view('register');
     }
 
-    public function loginPage()
+    public function loginpage()
     {
         $this->load->view('login');
     }
 
-    public function taskPage()
+    public function taskpage()
     {   
         $email      = $this->input->post('email');
         $password   = $this->input->post('password');

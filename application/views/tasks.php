@@ -12,7 +12,7 @@
 
 <div class="preloader-wrapper">
     <div class="preloader">
-        <img src="assets/images/preloader.gif" alt="cat">
+        <img src="<?php echo base_url('assets/images/preloader.gif'); ?>" alt="cat">
     </div>
 </div>
 
@@ -134,7 +134,7 @@
 
                 <div class="preloader-wrapper-task">
                     <div class="preloader">
-                        <div class="preloader-image"><img src="assets/images/preloader.gif" alt="cat"></div>
+                        <div class="preloader-image"><img src="<?php echo base_url('assets/images/preloader.gif'); ?>" alt="cat"></div>
                         <div>Add some task</div>
                     </div>
                 </div>

@@ -54,13 +54,13 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 
-$route['login'] = 'acount/loginPage';
+$route['login'] = 'acount/loginpage';
 $route['login/(.*)'] = 'acount/$1';
 
-$route['register'] = 'acount/registerPage';
+$route['register'] = 'acount/registerpage';
 $route['register/(.*)'] = 'acount/$1';
 
-$route['tasks'] = 'acount/taskPage';
+$route['tasks'] = 'acount/taskpage';
 $route['tasks/(.*)'] = 'acount/$1';
 
 $route['process'] = 'acount/process';
