@@ -231,17 +231,13 @@ $(document).ready(function (){
             }
 
             function showinfo(text) {
-                $('.info').css('display', 'flex');
                 
-                $('.infoDiv').html(text)
+                if($('.info').style.display == "flex") {
 
-                $('.infoDiv').animate({
-                    top: '-15px',
-                    opacity:1,
-                }, 500, function () {
-                    
+                    $('.infoDiv').html(text)
+
                     setTimeout(() => {
-                        
+                            
                         $('.infoDiv').animate({
                             top: '15px',
                             opacity:0,
@@ -249,9 +245,32 @@ $(document).ready(function (){
                             $('.info').css('display', 'none');
                         });
                         
-                    }, 2000);
+                    }, 2500);
 
-                });
+                } else {
+                    $('.info').css('display', 'flex');
+                    
+                    $('.infoDiv').html(text)
+    
+                    $('.infoDiv').animate({
+                        top: '-15px',
+                        opacity:1,
+                    }, 500, function () {
+                        
+                        setTimeout(() => {
+                            
+                            $('.infoDiv').animate({
+                                top: '15px',
+                                opacity:0,
+                            }, 500, function () {
+                                $('.info').css('display', 'none');
+                            });
+                            
+                        }, 2500);
+    
+                    });
+
+                }
 
             }
 
