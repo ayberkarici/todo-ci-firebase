@@ -9,12 +9,9 @@
     -webkit-box-sizing: border-box;
     font-family: 'Raleway', sans-serif;
     -webkit-overflow-scrolling: touch;
-    -webkit-user-select: none; /* Safari */
-    -ms-user-select: none; /* IE 10 and IE 11 */
-    user-select: none;
 }
 
-*:not(input.field), textarea {    
+*:not(input.field, textarea) {    
     -webkit-user-select: none;
     -khtml-user-select: none;
     -moz-user-select: none;
