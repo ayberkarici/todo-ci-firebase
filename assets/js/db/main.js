@@ -63,17 +63,20 @@ $(document).ready(function (){
                     /**
                      * Please choose a mood, it's easy 
                      */
-                    alert("Please choose a mood, it's easy")
-                } else if (moodValue != undefined && $('#description').val() == "") {
-                    /**
-                     * Please write something, it's okay 
-                     */
-                    alert("Please write something, it's okay")
+                     showinfo("Please choose a mood, it's easy")
+                    
+                    } else if (moodValue != undefined && $('#description').val() == "") {
+                        /**
+                         * Please write something, it's okay 
+                         */
+                    showinfo("Please write something, it's okay")
+                    
                 } else {
                     /**
                      * Write me a task!
                      */
-                    alert("Write me a task!")
+                    showinfo("Write me a task! Please..")
+                    
                 }
 
             });
