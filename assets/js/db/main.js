@@ -231,8 +231,8 @@ $(document).ready(function (){
             }
 
             function showinfo(text) {
-                
-                if($('.info').style.display === "flex") {
+                let Btn = document.querySelector('.info');
+                if(Btn.style.display === "flex") {
 
                     $('.infoDiv').html(text)
 
