@@ -176,7 +176,7 @@ $(document).ready(function (){
                     
                     firebase.database().ref("users/" + current_user).child("todos").child($key).child("completed").set(false);
                     
-                    showinfo("Nevermind, you'll do it another time.");
+                    showinfo("Never mind, let's chill..");
 
                 }
 
