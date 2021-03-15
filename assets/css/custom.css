@@ -192,10 +192,6 @@ form {
 .swg4 {
     display: block;
     background-color: white;
-    transform: translateY(5px);
-    -webkit-transform: translateY(5px);
-    -ms-transform: translateY(5px);
-    -o-transform: translateY(5px);
 }
 
 .navbar {
@@ -314,6 +310,10 @@ form {
     justify-content: center;
     flex-direction: column;
     -ms-flex-direction: column;
+    transform: translateY(-5px);
+    -webkit-transform: translateY(-5px);
+    -ms-transform: translateY(-5px);
+    -o-transform: translateY(-5px);
     background-color: #24245c;
 }
 
