@@ -232,7 +232,7 @@ $(document).ready(function (){
 
             function showinfo(text) {
                 
-                if($('.info').style.display == "flex") {
+                if($('.info').style.display === "flex") {
 
                     $('.infoDiv').html(text)
 
