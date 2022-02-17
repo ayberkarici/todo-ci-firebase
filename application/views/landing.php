@@ -65,7 +65,7 @@
                 /> by Ayberk Arıcı
             </div>
             <div class="footer-div">
-                <a href="https://instagram.com/ayberkariciconfidential" target="_blank">instagram</a> 
+                <a href="https://instagram.com/ayberkaricci" target="_blank">instagram</a> 
             </div>
         </footer>
     </div>
